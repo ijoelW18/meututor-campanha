@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apoie o Meu Tutor — A IA-Assistida que aproxima vocês na hora de estudar</title>
+<meta name="description" content="Conectada à escola, ela ensina no ritmo do seu filho e manda um relatório diário para você. Apoie o piloto via Pix.">
+<meta property="og:title" content="A IA-Assistida que aproxima vocês na hora de estudar">
+<meta property="og:description" content="Conectada à escola, ela ensina no ritmo do seu filho e te manda um relatório diário — para você estar presente, mesmo na correria.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20width%3D%2264%22%20height%3D%2264%22%20role%3D%22img%22%20aria-label%3D%22Meu%20Tutor%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22fbg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237C3AED%22%3E%3C%2Fstop%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EC4899%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%20%3ClinearGradient%20id%3D%22flumi%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231D4ED8%22%3E%3C%2Fstop%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230D9488%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23fbg%29%22%3E%3C%2Frect%3E%20%3Ccircle%20cx%3D%2227%22%20cy%3D%2226%22%20r%3D%2215%22%20fill%3D%22%23fff%22%3E%3C%2Fcircle%3E%20%3Cpath%20d%3D%22M18%2038%20L14%2050%20L28%2043%20Z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3Crect%20x%3D%2232%22%20y%3D%2232%22%20width%3D%2222%22%20height%3D%2222%22%20rx%3D%227%22%20fill%3D%22url%28%23flumi%29%22%20stroke%3D%22%23fff%22%20stroke-width%3D%224%22%3E%3C%2Frect%3E%20%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+  --ink:#0d0d1a; --ink-2:#150f2a; --ink-3:#221a3d; --ink-4:#3a2470;
+  --lilac:#c9bfe6; --lilac-2:#9a8fc0; --lilac-soft:#e7ddff; --paper:#f4f1fb;
+  --cream:#fbf7f0; --line:#ece6dc;
+  --violet:#7C3AED; --pink:#EC4899; --blue:#1D4ED8; --teal:#0D9488; --amber:#f59e0b;
+  --body:#615a73;
+  --r:18px; --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.display{font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:700}
+p{color:var(--body)}
+a{color:var(--violet)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:14px}
+.lead{font-size:19px;color:var(--body)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(251,247,240,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.brand{display:flex;align-items:center;flex:0 0 auto;text-decoration:none}
+.brand svg{height:34px;width:auto;display:block}
+footer .brand svg{height:40px}
+.navlinks{display:flex;gap:26px;font-size:14px;font-weight:500}
+.navlinks a{color:var(--body);text-decoration:none}
+.navlinks a:hover{color:var(--violet)}
+.btn{display:inline-block;background:var(--violet);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 20px rgba(124,58,237,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(124,58,237,.36)}
+.btn.sm{padding:10px 20px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--violet);border:1.5px solid var(--violet);box-shadow:none}
+
+/* HERO */
+.hero{background:linear-gradient(165deg,var(--ink) 0%,var(--ink-2) 46%,var(--ink-3) 100%);color:#fff;padding:84px 0 128px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.42),transparent 68%);top:-180px;right:-140px}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(34px,5.6vw,62px);max-width:19ch;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p.lead{color:var(--lilac);max-width:58ch;margin-top:22px;font-size:19px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.45)}
+/* .videoframe fica aqui pronta para quando o vídeo voltar ao hero */
+.videoframe{margin-top:44px;aspect-ratio:16/9;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);overflow:hidden}
+
+/* PROGRESS */
+.tracker{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;margin-top:-52px;position:relative;z-index:5;box-shadow:0 16px 44px rgba(13,13,26,.10)}
+.tracker .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.big{font-family:'Bricolage Grotesque',sans-serif;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.muted{font-size:13px;color:var(--lilac-2);font-weight:600}
+.bar{height:12px;border-radius:999px;background:var(--paper);margin:20px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--pink))}
+.marks{display:flex;justify-content:space-between;font-size:12px;color:var(--lilac-2);font-weight:600}
+
+/* GRID CARDS */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card p{font-size:15px}
+.stat{font-family:'Bricolage Grotesque',sans-serif;font-size:42px;font-weight:800;color:var(--violet);letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+.pnum{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;color:var(--violet);letter-spacing:.16em;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.pnum:after{content:"";flex:1;height:1.5px;background:var(--lilac-soft)}
+
+/* DARK SECTION */
+.dark{background:var(--ink);color:#fff}
+.dark h2,.dark h3{color:#fff}
+.dark p{color:var(--lilac)}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--lilac-2);font-weight:700;background:var(--paper)}
+td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0;font-weight:700;color:var(--ink)}
+
+/* TIERS */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;position:relative}
+.tier.hi{border:2px solid var(--violet);box-shadow:0 14px 40px rgba(124,58,237,.14)}
+.tier .flag{position:absolute;top:-12px;left:26px;background:var(--violet);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.tier .amt{font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.tier .name{font-weight:700;font-size:15px;color:var(--violet);margin:6px 0 14px;font-family:'Bricolage Grotesque',sans-serif}
+.tier ul{list-style:none;font-size:14.5px;color:var(--body);flex:1;margin-bottom:20px}
+.tier li{padding-left:24px;position:relative;margin-bottom:9px}
+.tier li:before{content:"";position:absolute;left:0;top:8px;width:13px;height:7px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(13,13,26,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.on{display:flex}
+.sheet{background:#fff;border-radius:24px;max-width:520px;width:100%;max-height:92vh;overflow:auto;padding:32px}
+.sheet h3{font-size:24px;margin-bottom:6px}
+.close{position:absolute;top:18px;right:22px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--lilac-2);line-height:1}
+.qr{display:grid;place-items:center;padding:18px;background:var(--paper);border-radius:16px;margin:20px 0}
+.qr canvas,.qr img{border-radius:8px}
+.copybox{display:flex;gap:8px;margin-bottom:8px}
+.copybox input{flex:1;font-family:ui-monospace,monospace;font-size:11px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--body);min-width:0}
+.steps{counter-reset:s;list-style:none;font-size:14.5px;margin:18px 0}
+.steps li{counter-increment:s;padding-left:34px;position:relative;margin-bottom:11px;color:var(--body)}
+.steps li:before{content:counter(s);position:absolute;left:0;top:1px;width:23px;height:23px;border-radius:50%;background:var(--violet);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px}
+input[type=text],input[type=email],select,textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;font-family:inherit;font-size:15px;background:var(--cream)}
+.fineprint{font-size:12.5px;color:var(--lilac-2);margin-top:14px}
+
+/* FAQ */
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+details[open]{border-color:var(--violet)}
+summary{font-weight:700;cursor:pointer;font-size:16px;font-family:'Bricolage Grotesque',sans-serif}
+details p{margin-top:12px;font-size:15px}
+
+/* PRIVACY */
+.privacy{background:linear-gradient(150deg,var(--teal),#0b6b62);color:#fff;border-radius:24px;padding:44px}
+.privacy h2,.privacy h3{color:#fff}
+.privacy p,.privacy li{color:rgba(255,255,255,.9)}
+.privacy ul{list-style:none;font-size:15px;margin-top:18px}
+.privacy li{padding-left:26px;position:relative;margin-bottom:10px}
+.privacy li:before{content:"";position:absolute;left:0;top:8px;width:13px;height:7px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg)}
+
+footer{background:var(--ink);color:var(--lilac-2);padding:52px 0;font-size:13.5px}
+footer a{color:var(--lilac)}
+h2{font-size:clamp(27px,3.6vw,40px);max-width:24ch}
+.sec-head{margin-bottom:38px}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}.navlinks{display:none}section{padding:62px 0}.privacy{padding:28px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="Meu Tutor — início">
+      <svg viewBox="0 0 452 120" role="img" aria-label="Meu Tutor">
+        <defs>
+          <linearGradient id="gnina" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#EC4899"/></linearGradient>
+          <linearGradient id="glumi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D4ED8"/><stop offset="1" stop-color="#0D9488"/></linearGradient>
+          <linearGradient id="gword" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#EC4899"/></linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="44" fill="url(#gnina)"/>
+        <path d="M22 84 L14 104 L38 92 Z" fill="url(#gnina)"/>
+        <rect x="63" y="63" width="50" height="50" rx="15" fill="url(#glumi)" stroke="#fbf7f0" stroke-width="6"/>
+        <text x="140" y="82" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="62" letter-spacing="-1.6" fill="url(#gword)">Meu Tutor</text>
+      </svg>
+    </a>
+    <div class="navlinks">
+      <a href="#problema">Por que existimos</a>
+      <a href="#produto">O produto</a>
+      <a href="#dinheiro">Onde vai o dinheiro</a>
+      <a href="#apoie">Recompensas</a>
+      <a href="#privacidade">Privacidade</a>
+    </div>
+    <a href="#apoie" class="btn sm">Apoiar via Pix</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber)">Campanha de apoio ao piloto · 2026</div>
+    <h1>A <em>IA-Assistida</em> que aproxima vocês na hora de estudar.</h1>
+    <p class="lead">Conectado à escola, ela ensina no ritmo do seu filho e te manda um relatório diário — para você estar presente, mesmo na correria.</p>
+    <p class="lead" style="margin-top:14px">Estamos testando com uma escola parceira e precisamos de apoio para terminar o piloto e abrir para todo mundo.</p>
+    <div class="hero-cta">
+      <a href="#apoie" class="btn">Quero apoiar</a>
+      <a href="#produto" class="btn ghost">Ver o que já funciona</a>
+    </div>
+    <!-- ============================================================
+         VÍDEO — removido temporariamente até a peça ficar pronta.
+         Para reativar, descomentar e trocar o src pelo embed real:
+
+    <div class="videoframe">
+      <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO" title="Meu Tutor — vídeo da campanha"
+              frameborder="0" allowfullscreen
+              style="width:100%;height:100%;border-radius:22px;border:0"></iframe>
+    </div>
+         ============================================================ -->
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tracker">
+    <div class="row">
+      <div>
+        <div class="big" id="raised">R$ 0</div>
+        <div class="muted">arrecadados de R$ 20.000</div>
+      </div>
+      <div style="text-align:right">
+        <div class="big" id="backers">0</div>
+        <div class="muted">famílias e apoiadores</div>
+      </div>
+      <div style="text-align:right">
+        <div class="big" id="days">56</div>
+        <div class="muted">dias restantes</div>
+      </div>
+    </div>
+    <div class="bar"><i id="fill" style="width:0%"></i></div>
+    <div class="marks"><span>Início</span><span>Meta R$ 20.000</span><span>Meta esticada R$ 42.000</span></div>
+    <p style="font-size:13px;margin-top:14px">Campanha de meta flexível: cada real recebido vai direto para o piloto, mesmo que a meta não seja atingida. Prestação de contas publicada aqui a cada 15 dias.</p>
+  </div>
+</div>
+
+<section id="problema">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">A origem</div>
+      <h2>Por que existimos</h2>
+      <p class="lead" style="margin-top:20px;max-width:62ch">O Meu Tutor nasce de uma dor comum a muitos pais: a rotina consome o dia inteiro e, quando finalmente chegam em casa, já perderam o fio do que aconteceu na escola dos filhos. Tarefas, dificuldades, pequenas conquistas — tudo isso vai passando sem que haja tempo ou espaço para acompanhar de perto.</p>
+      <p class="lead" style="margin-top:14px;max-width:62ch">Ao mesmo tempo, cresce o número de crianças usando IA e chatbots sem nenhuma supervisão, o que preocupa tanto quanto essa distância.</p>
+      <p class="lead" style="margin-top:14px;max-width:62ch">Foi para responder a essas duas questões que o Meu Tutor foi criado: uma IA que acompanha a criança nos estudos, mas que existe para aproximar os pais — nunca para ocupar o lugar deles. <strong style="color:var(--ink)">Os pais continuam sendo pais.</strong> A tecnologia apenas devolve a visibilidade que a rotina tirou deles.</p>
+      <p class="lead" style="margin-top:14px;max-width:62ch">Também não é reforço escolar mais barato: <strong style="color:var(--ink)">o Meu Tutor não substitui nenhum professor.</strong> Ele faz outra coisa, todos os dias, apoiado em quatro pilares — nesta ordem.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="pnum">01</div>
+        <h3>Proximidade</h3>
+        <p>O responsável volta a fazer parte da rotina de estudo — não vigiando, mas sabendo o que perguntar no jantar. Relatórios diários mostram onde a criança travou hoje, e o Cofrinho das Conquistas passa pela aprovação da família.</p>
+      </div>
+      <div class="card">
+        <div class="pnum">02</div>
+        <h3>Organização</h3>
+        <p>Tarefa, prazo, prova, matéria. A criança abre o app e sabe exatamente o que tem para fazer hoje, sem depender de alguém lembrar por ela. Metade da angústia da lição de casa é desorganização, não dificuldade.</p>
+      </div>
+      <div class="card">
+        <div class="pnum">03</div>
+        <h3>IA-Assistida, com trilhos</h3>
+        <p>Não é IA genérica solta na mão de uma criança. A Nina e o Lumi conhecem o material da turma, seguem regras de segurança e linguagem por faixa de idade e <strong>nunca entregam a resposta pronta</strong> — explicam o caminho e devolvem a pergunta.</p>
+      </div>
+      <div class="card">
+        <div class="pnum">04</div>
+        <h3>Suporte diário</h3>
+        <p>Não é socorro de véspera de prova. É estar disponível todo dia, no horário em que a dúvida aparece de verdade, com a mesma paciência na décima explicação e na primeira.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produto" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:var(--amber)">O que já funciona hoje</div>
+      <h2>Não é uma ideia. É um piloto rodando com famílias reais.</h2>
+      <p class="lead" style="margin-top:16px;max-width:62ch">Três aplicações no ar, integradas ao ambiente de estudos da escola parceira em modo somente leitura.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Nina e Lumi</h3>
+        <p>Dois tutores com personalidades distintas, treinados para explicar de novo — e de outro jeito — sem entregar a resposta pronta. Conversas com trilhos de segurança e linguagem apropriada para a idade.</p>
+      </div>
+      <div class="card">
+        <h3>Conectado à escola</h3>
+        <p>O tutor sabe qual é a matéria, a tarefa e o prazo, porque lê o material do ambiente escolar. Acesso somente leitura, configurado exclusivamente pela área dos pais.</p>
+      </div>
+      <div class="card">
+        <h3>Cofrinho das Conquistas</h3>
+        <p>A criança ganha moedas por consistência de estudo e pode pedir o saque para o responsável, que aprova ou não. Educação financeira acontecendo junto com a escolar.</p>
+      </div>
+      <div class="card">
+        <h3>Controle parental completo</h3>
+        <p>O responsável vê os relatórios, define limites, aprova recompensas e é notificado. Nenhuma configuração sensível fica acessível para a criança.</p>
+      </div>
+      <div class="card">
+        <h3>Relatórios que dizem algo</h3>
+        <p>Não é "tempo de tela". É onde a criança travou, o que ela repetiu, o que já sabe. O pai entra na reunião de pais sabendo o que perguntar.</p>
+      </div>
+      <div class="card">
+        <h3>Feito no Brasil, para o Brasil</h3>
+        <p>Português brasileiro, currículo brasileiro, Pix, e conformidade com a LGPD e o ECA Digital desde a primeira linha de código.</p>
+      </div>
+    </div>
+    <p style="margin-top:32px;font-size:14px;color:var(--lilac-2)">Por respeito à comunidade que confiou em nós, <strong style="color:#fff">não divulgamos o nome da escola parceira</strong> nem qualquer imagem, nome ou dado que identifique alunos e famílias do piloto.</p>
+  </div>
+</section>
+
+<!-- Seção "Quem está construindo" (fundadores) removida a pedido.
+     O bloco "Quem recebe o Pix" foi preservado e movido para a seção de Transparência,
+     logo abaixo da tabela de orçamento — é a identificação legal do recebedor. -->
+
+<section id="dinheiro" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Transparência</div>
+      <h2>Onde vai cada real.</h2>
+      <p class="lead" style="margin-top:16px;max-width:60ch">Nosso custo de inteligência artificial é medido, não estimado: <strong>R$ 13,37 por família por mês</strong>. O resto do orçamento é jurídico, infraestrutura e conteúdo.</p>
+    </div>
+    <table>
+      <thead><tr><th>Destino</th><th>Meta R$ 20.000</th><th>Meta esticada R$ 42.000</th></tr></thead>
+      <tbody>
+        <tr><td>Custo de IA — 100 famílias × 6 meses</td><td>R$ 8.020</td><td>R$ 8.020</td></tr>
+        <tr><td>Infraestrutura, hospedagem e monitoramento</td><td>R$ 2.400</td><td>R$ 3.600</td></tr>
+        <tr><td>Jurídico — termos, consentimento LGPD, encarregado de dados</td><td>R$ 4.000</td><td>R$ 6.000</td></tr>
+        <tr><td>Design, conteúdo e vídeo</td><td>R$ 1.500</td><td>R$ 4.000</td></tr>
+        <tr><td>Reserva de contingência</td><td>R$ 2.400</td><td>R$ 5.000</td></tr>
+        <tr><td>Segunda turma + versão sem escola (Meu Tutor Light)</td><td>—</td><td>R$ 12.000</td></tr>
+        <tr><td>Tarifas de recebimento e emissão</td><td>R$ 1.680</td><td>R$ 3.380</td></tr>
+        <tr><td>Total</td><td>R$ 20.000</td><td>R$ 42.000</td></tr>
+      </tbody>
+    </table>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card">
+        <h3>Zero taxa de plataforma</h3>
+        <p>Recebemos por Pix direto, sem intermediário cobrando 12% a 17% do que você doou. Praticamente todo real entra no projeto.</p>
+      </div>
+      <div class="card">
+        <h3>Prestação de contas a cada 15 dias</h3>
+        <p>Publicamos nesta página o valor arrecadado, o número de apoiadores e o que foi gasto. Sem gráfico bonito e vago: linha por linha.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;border-color:var(--lilac-soft)">
+      <p style="font-size:15px"><strong style="color:var(--ink)">Quem recebe o Pix:</strong> JTECH HUB SERVIÇOS · CNPJ 59.750.112/0001-02 · contato@meututor.ai. Empresa formalmente constituída, com nota e recibo para todo apoio acima de R$ 100.</p>
+    </div>
+  </div>
+</section>
+
+<section id="apoie">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Como apoiar</div>
+      <h2>Escolha um valor. Pague no Pix. Leve algo de volta.</h2>
+      <p class="lead" style="margin-top:16px;max-width:60ch">Nenhuma recompensa tem custo de frete ou logística — tudo é digital ou dentro do próprio app. Assim, seu dinheiro vira produto, não camiseta.</p>
+    </div>
+    <div class="tiers" id="tiers"></div>
+
+    <div class="card" style="margin-top:28px;text-align:center;border-style:dashed">
+      <h3>Prefere outro valor?</h3>
+      <p style="margin:8px auto 18px;max-width:52ch">Qualquer quantia ajuda. Use a chave Pix livre e nos avise depois para receber a recompensa correspondente à faixa.</p>
+      <button class="btn" onclick="openTier('LIVRE')">Apoiar com valor livre</button>
+    </div>
+  </div>
+</section>
+
+<section id="privacidade" style="padding-top:0">
+  <div class="wrap">
+    <div class="privacy">
+      <div class="eyebrow" style="color:rgba(255,255,255,.75)">Privacidade e proteção de dados</div>
+      <h2 style="max-width:26ch">Levamos dados de criança a sério porque também somos pais.</h2>
+      <ul>
+        <li>Operamos sob a <strong>LGPD (Lei nº 13.709/2018, Art. 14)</strong>, o <strong>ECA Digital (Lei nº 15.211/2025)</strong> e o <strong>Decreto nº 12.880/2026</strong>.</li>
+        <li>Todo cadastro de criança depende de <strong>consentimento expresso de um responsável legal</strong>.</li>
+        <li>O acesso ao ambiente escolar é <strong>somente leitura</strong>. Não escrevemos, não postamos, não alteramos nada.</li>
+        <li>Nenhum dado de criança é usado para <strong>publicidade</strong> ou vendido a terceiros. Nunca.</li>
+        <li>Nenhuma escola, aluno ou família é <strong>identificada</strong> em nossos materiais públicos, apresentações ou capturas de tela.</li>
+        <li>O responsável pode solicitar <strong>exclusão total dos dados</strong> a qualquer momento, sem justificar.</li>
+      </ul>
+      <p style="margin-top:22px;font-size:14px">Dúvidas sobre dados: <a href="mailto:contato@meututor.ai" style="color:#fff"><strong>contato@meututor.ai</strong></a></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Perguntas frequentes</div><h2>O que as pessoas perguntam antes de apoiar.</h2></div>
+
+    <details open><summary>Isso é investimento? Vou ter participação na empresa?</summary>
+    <p>Não. Este é um apoio ao projeto, no formato de doação com recompensa. Não há participação societária, rendimento ou promessa de retorno financeiro. Quem tem interesse em investir na empresa deve falar direto conosco em contato@meututor.ai.</p></details>
+
+    <details><summary>Se o produto não lançar, eu perco meu dinheiro?</summary>
+    <p>As recompensas de acesso gratuito estão condicionadas ao lançamento comercial, previsto para janeiro de 2027. Se o lançamento não ocorrer, o valor apoiado é convertido integralmente em doação ao projeto e você recebe um relatório final de transparência sobre o uso dos recursos. Esse risco está declarado aqui de propósito, antes de você pagar.</p></details>
+
+    <details><summary>A meta é obrigatória? O que acontece se não bater?</summary>
+    <p>Não é "tudo ou nada". Cada real recebido é aplicado no piloto imediatamente, na ordem de prioridade da tabela de orçamento: primeiro custo de IA, depois jurídico, depois o resto.</p></details>
+
+    <details><summary>Como vocês sabem quem eu sou depois que eu pago no Pix?</summary>
+    <p>Depois de pagar, você preenche um formulário curto (nome, e-mail e faixa apoiada) e envia o comprovante. Sem esse passo não conseguimos vincular o pagamento à sua recompensa — o Pix nos mostra o valor, mas não o seu e-mail.</p></details>
+
+    <details><summary>Qual escola é essa? Meu filho pode participar?</summary>
+    <p>Não divulgamos o nome da escola parceira, por respeito à privacidade da comunidade dela. O piloto está fechado nessa escola, mas todo apoiador entra na lista prioritária do lançamento aberto de janeiro de 2027 — e a meta esticada financia justamente a versão que funciona sem depender de escola parceira.</p></details>
+
+    <details><summary>Meu filho vai só copiar a resposta da IA?</summary>
+    <p>A Nina e o Lumi são instruídos a não entregar resposta final de tarefa avaliativa: eles explicam o caminho, propõem um exemplo parecido e devolvem a pergunta. E o responsável vê, no relatório, o que a criança perguntou e onde travou.</p></details>
+
+    <details><summary>Recebo recibo ou nota fiscal?</summary>
+    <p>Sim, para apoios acima de R$ 100, emitidos por JTECH HUB SERVIÇOS (CNPJ 59.750.112/0001-02). Solicite no formulário de confirmação.</p></details>
+  </div>
+</section>
+
+<section class="dark" style="text-align:center">
+  <div class="wrap">
+    <h2 style="max-width:22ch;margin:0 auto">Dezoito reais é o preço de um lanche. Também é o preço de terminar esse piloto.</h2>
+    <p class="lead" style="margin:20px auto 32px;max-width:52ch">Se você acha que uma criança não deveria depender da sorte de ter um adulto disponível às 19h30, apoie.</p>
+    <a href="#apoie" class="btn">Apoiar agora via Pix</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="margin-bottom:18px">
+      <svg viewBox="0 0 452 120" role="img" aria-label="Meu Tutor">
+        <circle cx="50" cy="50" r="44" fill="#fff"/>
+        <path d="M22 84 L14 104 L38 92 Z" fill="#fff"/>
+        <rect x="63" y="63" width="50" height="50" rx="15" fill="none" stroke="#fff" stroke-width="6"/>
+        <text x="140" y="82" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="62" letter-spacing="-1.6" fill="#fff">Meu Tutor</text>
+      </svg>
+    </div>
+    <p style="color:var(--lilac-2);font-size:13.5px;max-width:60ch">JTECH HUB SERVIÇOS · CNPJ 59.750.112/0001-02 · <a href="mailto:contato@meututor.ai">contato@meututor.ai</a><br>
+    Apoio na forma de doação com recompensa. Não constitui investimento, valor mobiliário ou promessa de retorno financeiro. Recompensas de acesso gratuito condicionadas ao lançamento comercial.</p>
+  </div>
+</footer>
+
+<!-- MODAL PIX -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeTier()">
+  <div class="sheet" style="position:relative">
+    <button class="close" onclick="closeTier()">&times;</button>
+    <div class="eyebrow" id="m-tier">Apoio</div>
+    <h3 id="m-amt">R$ 0</h3>
+    <p id="m-desc" style="font-size:15px"></p>
+
+    <div class="qr" id="qr"></div>
+
+    <label>Pix copia e cola</label>
+    <div class="copybox">
+      <input type="text" id="m-code" readonly>
+      <button class="btn sm" onclick="copyCode(this)">Copiar</button>
+    </div>
+    <p class="fineprint">Recebedor: <strong>JTECH HUB SERVIÇOS</strong> · Chave: contato@meututor.ai</p>
+
+    <ol class="steps">
+      <li>Abra o app do banco, escolha Pix &rarr; Ler QR Code (ou Pix copia e cola).</li>
+      <li>Confirme que o recebedor é JTECH HUB SERVIÇOS e o valor está correto.</li>
+      <li>Pague e <strong>salve o comprovante</strong>.</li>
+      <li>Preencha o formulário abaixo para receber sua recompensa.</li>
+    </ol>
+
+    <div style="border-top:1px solid var(--line);padding-top:20px" id="confirm-form">
+      <h3 style="font-size:19px">Confirmar meu apoio</h3>
+      <p style="font-size:14px;margin-top:6px">Esse passo é o que liga o seu Pix à sua recompensa. Sem ele, não conseguimos te identificar.</p>
+      <label for="n">Nome completo</label>
+      <input type="text" id="n" placeholder="Como devemos te chamar" autocomplete="name">
+      <label for="e">E-mail</label>
+      <input type="email" id="e" placeholder="para enviar sua recompensa" autocomplete="email">
+      <label for="w">Nome no Mural dos Fundadores (opcional)</label>
+      <input type="text" id="w" placeholder="Como quer aparecer — ou deixe vazio para anônimo">
+      <button class="btn" style="width:100%;margin-top:20px" onclick="sendConfirm(this)">Confirmar meu apoio</button>
+      <p class="fineprint">Ao enviar, você concorda com o uso do seu nome e e-mail exclusivamente para a entrega da recompensa e comunicação da campanha.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ====== CONFIGURAÇÃO DA CAMPANHA — editar estes valores a cada atualização ====== */
+const CAMPANHA = {
+  arrecadado: 0,        // R$ já recebidos
+  meta: 20000,
+  apoiadores: 0,
+  encerra: '2026-09-21' // data de encerramento (AAAA-MM-DD)
+};
+const EMAIL = 'contato@meututor.ai';
+
+/* Endpoint que recebe as confirmacoes de apoio (Google Apps Script - ver backend/Code.gs).
+   Enquanto estiver vazio, o formulario cai no fluxo por e-mail (mailto). */
+const ENDPOINT = '';
+
+const TIERS = [
+  {id:'SEMENTE',   v:18,   name:'Semente',                  hi:false, flag:'',
+   desc:'O primeiro passo. Seu nome no Mural dos Fundadores dentro do app.',
+   perks:['Nome no Mural dos Fundadores no app','Carta de agradecimento da Nina e do Lumi','Relatório final de transparência'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai520400005303986540518.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62110507SEMENTE6304DDE1'},
+  {id:'APOIADOR',  v:50,   name:'Apoiador',                 hi:false, flag:'',
+   desc:'Você entra no lançamento de janeiro de 2027 com um mês por nossa conta.',
+   perks:['Tudo do Semente','1 mês grátis no lançamento (jan/2027)','Lista prioritária de acesso'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai520400005303986540550.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62120508APOIADOR6304FD76'},
+  {id:'FUNDADORA', v:120,  name:'Família Fundadora',        hi:true,  flag:'Mais escolhido',
+   desc:'Três meses completos do plano de 1 filho, mais um selo permanente no perfil do seu filho.',
+   perks:['3 meses grátis do plano 1 filho (R$ 39,99/mês)','Selo permanente “Família Fundadora” no perfil','Acesso ao grupo de feedback com os fundadores','Tudo dos anteriores'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai5204000053039865406120.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62130509FUNDADORA6304CF68'},
+  {id:'FUNDPLUS',  v:240,  name:'Família Fundadora Plus',   hi:false, flag:'',
+   desc:'Meio ano grátis no plano de até 3 filhos. Para quem tem mais de uma criança em casa.',
+   perks:['6 meses grátis do plano até 3 filhos (R$ 69,99/mês)','Selo “Família Fundadora”','Grupo de feedback com os fundadores','Tudo dos anteriores'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai5204000053039865406240.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62120508FUNDPLUS6304BC1A'},
+  {id:'EARLY2027', v:490,  name:'Early Features Adopter',   hi:true,  flag:'Só existe em 2026',
+   desc:'Todas as funcionalidades novas liberadas de graça durante o ano inteiro de 2027. Essa faixa não volta.',
+   perks:['Todas as features novas grátis em todo o ano de 2027','6 meses grátis de acesso','Voto na priorização do roadmap','Tudo dos anteriores'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai5204000053039865406490.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62130509EARLY202763044410'},
+  {id:'PADRINHO',  v:1200, name:'Padrinho de Turma',        hi:false, flag:'',
+   desc:'Você custeia o acesso de cinco famílias bolsistas por seis meses.',
+   perks:['Acesso de 5 famílias bolsistas por 6 meses','Menção como padrinho na campanha (pessoa ou empresa)','Relatório de impacto individualizado','Tudo dos anteriores'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai52040000530398654071200.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62120508PADRINHO630415F1'},
+  {id:'PARCEIRO',  v:3500, name:'Parceiro Institucional',   hi:false, flag:'Empresas',
+   desc:'Para empresas locais que querem associar a marca à educação da comunidade.',
+   perks:['Marca nos materiais da campanha','10 famílias bolsistas custeadas','Apresentação privada do produto','Relatório de impacto para uso institucional'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai52040000530398654073500.005802BR5918JTECH HUB SERVICOS6009SAO PAULO62120508PARCEIRO6304C866'},
+  {id:'LIVRE',     v:0,    name:'Valor livre',              hi:false, flag:'',
+   desc:'Você define o valor no app do banco. Avise-nos e aplicamos a recompensa da faixa correspondente.',
+   perks:['Recompensa equivalente à faixa do valor apoiado','Relatório final de transparência'],
+   code:'00020101021126410014BR.GOV.BCB.PIX0119contato@meututor.ai5204000053039865802BR5918JTECH HUB SERVICOS6009SAO PAULO62090505LIVRE63040C12'}
+];
+
+const brl = n => 'R$ ' + n.toLocaleString('pt-BR');
+
+/* progresso */
+(function(){
+  const pct = Math.min(100, CAMPANHA.arrecadado / CAMPANHA.meta * 100);
+  document.getElementById('raised').textContent = brl(CAMPANHA.arrecadado);
+  document.getElementById('backers').textContent = CAMPANHA.apoiadores;
+  document.getElementById('fill').style.width = pct + '%';
+  const d = Math.max(0, Math.ceil((new Date(CAMPANHA.encerra) - new Date()) / 864e5));
+  document.getElementById('days').textContent = d;
+})();
+
+/* tiers */
+document.getElementById('tiers').innerHTML = TIERS.filter(t => t.id !== 'LIVRE').map(t => `
+  <div class="tier ${t.hi ? 'hi' : ''}">
+    ${t.flag ? `<div class="flag">${t.flag}</div>` : ''}
+    <div class="amt">${t.v ? brl(t.v) : 'Livre'}</div>
+    <div class="name">${t.name}</div>
+    <ul>${t.perks.map(p => `<li>${p}</li>`).join('')}</ul>
+    <button class="btn" onclick="openTier('${t.id}')">Apoiar com ${t.v ? brl(t.v) : 'valor livre'}</button>
+  </div>`).join('');
+
+/* modal */
+let cur = null;
+function openTier(id){
+  cur = TIERS.find(t => t.id === id);
+  document.getElementById('m-tier').textContent = cur.name;
+  document.getElementById('m-amt').textContent = cur.v ? brl(cur.v) : 'Valor livre';
+  document.getElementById('m-desc').textContent = cur.desc;
+  document.getElementById('m-code').value = cur.code;
+  const box = document.getElementById('qr');
+  box.innerHTML = '';
+  new QRCode(box, {text: cur.code, width: 190, height: 190, colorDark: '#0d0d1a', colorLight: '#f4f1fb', correctLevel: QRCode.CorrectLevel.M});
+  document.getElementById('modal').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeTier(){
+  document.getElementById('modal').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeTier(); });
+
+function copyCode(btn){
+  const el = document.getElementById('m-code');
+  el.select();
+  navigator.clipboard.writeText(el.value).then(() => {
+    btn.textContent = 'Copiado!';
+    setTimeout(() => btn.textContent = 'Copiar', 2000);
+  }).catch(() => { document.execCommand('copy'); btn.textContent = 'Copiado!'; });
+}
+
+function mailtoFallback(d){
+  const body = [
+    'Confirmo meu apoio à campanha do Meu Tutor.','',
+    'Faixa: ' + d.faixa + (d.valor ? ' (' + brl(d.valor) + ')' : ' (valor livre)'),
+    'Nome: ' + d.nome,
+    'E-mail: ' + d.email,
+    'Nome no Mural dos Fundadores: ' + (d.mural || '(anônimo)'),
+    'Data do Pix: ',
+    'Preciso de recibo/nota: (sim/não)','',
+    '>>> ANEXE O COMPROVANTE DO PIX A ESTE E-MAIL ANTES DE ENVIAR <<<'
+  ].join('\n');
+  window.location.href = 'mailto:' + EMAIL
+    + '?subject=' + encodeURIComponent('Apoio campanha Meu Tutor — ' + d.faixa + ' — ' + d.nome)
+    + '&body=' + encodeURIComponent(body);
+}
+
+function confirmOk(){
+  document.getElementById('confirm-form').innerHTML =
+    '<div style="text-align:center;padding:22px 0">'
+    + '<div style="font-family:\'Bricolage Grotesque\',sans-serif;font-size:22px;font-weight:800;color:var(--teal);margin-bottom:8px">Apoio registrado. Obrigado!</div>'
+    + '<p style="font-size:15px">Vamos conferir o Pix e enviar a confirmação da sua recompensa para o e-mail informado, em até 3 dias úteis.</p>'
+    + '<p style="font-size:13px;color:var(--lilac-2);margin-top:12px">Se não receber, escreva para ' + EMAIL + '.</p></div>';
+}
+
+async function sendConfirm(btn){
+  const n = document.getElementById('n').value.trim();
+  const e = document.getElementById('e').value.trim();
+  const w = document.getElementById('w').value.trim();
+  if(!n || !e){ alert('Precisamos do seu nome e e-mail para vincular o apoio à recompensa.'); return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){ alert('Confira o e-mail: ele parece incompleto.'); return; }
+
+  const dados = {
+    faixa: cur.name, faixaId: cur.id, valor: cur.v,
+    nome: n, email: e, mural: w,
+    origem: new URLSearchParams(location.search).get('origem') || 'direto',
+    enviadoEm: new Date().toISOString()
+  };
+
+  if(!ENDPOINT){ mailtoFallback(dados); return; }
+
+  const txt = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Enviando...';
+  try{
+    await fetch(ENDPOINT, {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(dados)
+    });
+    confirmOk();
+  }catch(err){
+    btn.disabled = false; btn.textContent = txt;
+    mailtoFallback(dados);
+  }
+}
+
+</script>
+</body>
+</html>
